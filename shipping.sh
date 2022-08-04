@@ -8,9 +8,12 @@ curl -s -L -o /tmp/shipping.zip "https://github.com/roboshop-devops-project/ship
 unzip -o /tmp/shipping.zip >>/tmp/shipping.log
 mv shipping-main shipping >>/tmp/shipping.log
 cd shipping >>/tmp/shipping.log
+echo clening package
 mvn clean package >>/tmp/shipping.log
+echo moving
 mv target/shipping-1.0.jar shipping.jar >>/tmp/shipping.log
 mv /home/roboshop/shipping/systemd.service /etc/systemd/system/shipping.service >>/tmp/shipping.log
+echo running
 systemctl daemon-reload
 systemctl start shipping
 systemctl enable shipping
