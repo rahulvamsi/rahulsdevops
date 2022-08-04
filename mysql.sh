@@ -1,3 +1,4 @@
+set -e
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/roboshop-devops-project/mysql/main/mysql.repo
 yum install mysql-community-server -y
 systemctl enable mysqld
@@ -8,6 +9,7 @@ mysql -uroot -pRoboShop@1
 # uninstall plugin validate_password;
 url -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip"
 cd /tmp
-unzip mysql.zip
+rm -rf mysql
+unzip -o mysql.zip
 cd mysql-main
 mysql -u root -pRoboShop@1 <shipping.sql
