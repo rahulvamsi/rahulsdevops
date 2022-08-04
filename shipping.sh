@@ -1,5 +1,6 @@
 set -e
 yum install maven -y
+userdel -r -f roboshop
 useradd roboshop
 cd /home/roboshop
 rm -rf shipping

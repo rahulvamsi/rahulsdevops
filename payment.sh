@@ -1,5 +1,6 @@
 set -e
 yum install python36 gcc python3-devel -y
+userdel -r -f roboshop
 useradd roboshop
 cd /home/roboshop
 rm -rf payment
