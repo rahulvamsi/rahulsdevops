@@ -1,11 +1,11 @@
 set -e
-yum install maven -y >>/temp/shipping.log
-userdel -r -f roboshop  >>/temp/shipping.log
-useradd roboshop >>/temp/shipping.log
-cd /home/roboshop >>/temp/shipping.log
+yum install maven -y >>/tmp/shipping.log
+userdel -r -f roboshop  >>/tmp/shipping.log
+useradd roboshop >>/tmp/shipping.log
+cd /home/roboshop >>/tmp/shipping.log
 rm -rf shipping
-curl -s -L -o /tmp/shipping.zip "https://github.com/roboshop-devops-project/shipping/archive/main.zip">>/temp/shipping.log
-unzip -o /tmp/shipping.zip >>/temp/shipping.log
+curl -s -L -o /tmp/shipping.zip "https://github.com/roboshop-devops-project/shipping/archive/main.zip">>/tmp/shipping.log
+unzip -o /tmp/shipping.zip >>/tmp/shipping.log
 mv shipping-main shipping
 cd shipping
 mvn clean package
