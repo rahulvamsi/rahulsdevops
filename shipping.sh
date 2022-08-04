@@ -6,11 +6,11 @@ cd /home/roboshop >>/tmp/shipping.log
 rm -rf shipping
 curl -s -L -o /tmp/shipping.zip "https://github.com/roboshop-devops-project/shipping/archive/main.zip">>/tmp/shipping.log
 unzip -o /tmp/shipping.zip >>/tmp/shipping.log
-mv shipping-main shipping
-cd shipping
-mvn clean package
-mv target/shipping-1.0.jar shipping.jar
-mv /home/roboshop/shipping/systemd.service /etc/systemd/system/shipping.service
+mv shipping-main shipping >>/tmp/shipping.log
+cd shipping >>/tmp/shipping.log
+mvn clean package >>/tmp/shipping.log
+mv target/shipping-1.0.jar shipping.jar >>/tmp/shipping.log
+mv /home/roboshop/shipping/systemd.service /etc/systemd/system/shipping.service >>/tmp/shipping.log
 systemctl daemon-reload
 systemctl start shipping
 systemctl enable shipping
