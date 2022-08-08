@@ -25,6 +25,7 @@ else
   echo "addind user"
   useradd roboshop &>>/tmp/cart.log
 fi
+if [ $? -eq 0 ];
 then
   echo  " sucess"
 else
