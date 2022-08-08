@@ -32,7 +32,7 @@ echo "changing direct"
 cd /home/roboshop &>>/tmp/${COMPONENT}.log &&  rm -rf ${COMPONENT} &>>/tmp/${COMPONENT}.log
 StatusCheck
 echo "unzipping"
-unzip -o /tmp/${COMPONENT}.zip &>>/tmp/${COMPONENT}.log
+unzip -o /tmp/catalogue.zip &>>/tmp/catalogue.log
 StatusCheck
 mv ${COMPONENT}-main ${COMPONENT} &>>/tmp/${COMPONENT}.log && cd ${COMPONENT} &>>/tmp/${COMPONENT}.log
 StatusCheck
