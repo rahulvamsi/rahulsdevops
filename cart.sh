@@ -19,17 +19,14 @@ else
   echo "failed"
 fi
 id roboshop &>>/tmp/cart.log
-if [ $? -eq 0 ]; then
-  echo " user exists already"
-else
+if [ $? -nq 0 ]; then
   echo "adding user"
   useradd roboshop &>>/tmp/cart.log
-fi
-if [ $? -eq 0 ];
-then
-  echo  " sucess"
-else
-  echo "failed"
+  if [ $? -eq 0 ]; then
+
+    echo  " sucess"
+  else
+    echo "failed"
 fi
 echo "downloading zip file "
 curl -s -L -o /tmp/cart.zip "https://github.com/roboshop-devops-project/cart/archive/main.zip" &>>/tmp/cart.log
