@@ -8,6 +8,7 @@ NodeJs
 echo "unzipping"
 unzip -o /tmp/catalogue.zip
 StatusCheck
+ls
 echo " moving and changing"
 mv catalogue-main catalogue  && cd catalogue
 StatusCheck
