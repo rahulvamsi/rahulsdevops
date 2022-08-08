@@ -33,8 +33,9 @@ cd /home/roboshop &>>/tmp/${COMPONENT}.log
 rm -rf ${COMPONENT} &>>/tmp/${COMPONENT}.log
 StatusCheck
 echo "unzipping"
- unzip -o /tmp/catalogue.zip
+unzip -o /tmp/${COMPONENT}.zip
 StatusCheck
+echo " moving and changing"
 mv ${COMPONENT}-main ${COMPONENT} &>>/tmp/${COMPONENT}.log && cd ${COMPONENT} &>>/tmp/${COMPONENT}.log
 StatusCheck
 echo "installing node "
