@@ -44,7 +44,7 @@ SYSTEMD() {
   StatusCheck
 }
 
-NODEJS() {
+NodeJs() {
   echo Setting NodeJS repos
   curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${LOG}
   StatusCheck
