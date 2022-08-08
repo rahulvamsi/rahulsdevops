@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+COMPONENT = catalogue
 source Common.sh
 
-COMPONENT = catalogue
+
 
 NodeJs
