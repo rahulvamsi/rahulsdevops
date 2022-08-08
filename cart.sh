@@ -17,6 +17,7 @@ then
   echo  " sucess"
 else
   echo "failed"
+  exit 1
 fi
 id roboshop &>>/tmp/cart.log
 if [ $? -nq 0 ]; then
@@ -27,6 +28,8 @@ if [ $? -nq 0 ]; then
     echo  " sucess"
   else
     echo "failed"
+    exit 1
+    fi
 fi
 echo "downloading zip file "
 curl -s -L -o /tmp/cart.zip "https://github.com/roboshop-devops-project/cart/archive/main.zip" &>>/tmp/cart.log
