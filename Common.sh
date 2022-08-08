@@ -2,7 +2,7 @@
 
 StatusCheck(){
   if [ $? -eq 0 ]; then
-    echo  " sucess"
+    echo  " success"
   else
     echo "failed"
     exit 1
