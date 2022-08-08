@@ -1,15 +1,6 @@
 #set -e
+source Common.sh
 
-StatusCheck(){
-  if [ $? -eq 0 ];
-then
-  echo  " sucess"
-else
-  echo "failed"
-  exit 1
-fi
-
-}
 echo "downloading repo"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/cart.log
 StatusCheck
@@ -19,6 +10,7 @@ yum install nodejs -y &>>/tmp/cart.log
 StatusCheck
 
 id roboshop &>>/tmp/cart.log
+
 if [ $? -nq 0 ]; then
   echo "adding user"
   useradd roboshop &>>/tmp/cart.log
