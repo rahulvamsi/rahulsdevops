@@ -1,4 +1,4 @@
-#set -e
+set -e
 echo "downloading repo"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/cart.log
 echo  $?
