@@ -15,8 +15,9 @@ echo "installing node "
 npm install &>>/tmp/catalogue.log
 StatusCheck
 echo "moving systemd to catalogue"
-mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>/tmp/catalogue.log
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>/tmp/catalogue.log && systemctl daemon-reload
 StatusCheck
+
 echo " running systemctl commands"
-systemctl daemon-reload &>>/tmp/catalogue.log &&  systemctl start catalogue &>>/tmp/catalogue.log  && systemctl enable catalogue &>>/tmp/catalogue.log
+systemctl start catalogue &>>/tmp/catalogue.log  && systemctl enable catalogue &>>/tmp/catalogue.log
 StatusCheck
