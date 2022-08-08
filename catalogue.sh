@@ -9,13 +9,13 @@ echo "unzipping"
 unzip -o /tmp/catalogue.zip
 StatusCheck
 echo " moving and changing"
-mv catalogue-main catalogue &>>/tmp/catalogue.log && cd catalogue &>>/tmp/catalogue.log
+mv catalogue-main catalogue  && cd catalogue
 StatusCheck
 echo "installing node "
 npm install &>>/tmp/catalogue.log
 StatusCheck
 echo "moving systemd to catalogue"
-mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service 
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 systemctl daemon-reload
 StatusCheck
 
