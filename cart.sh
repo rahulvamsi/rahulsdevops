@@ -5,7 +5,9 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/cart.log
 if [ $? -eq 0 ];
 then
   echo  " sucess"
-else
+elif [ $? -nq 0 ]; then
+
+
   echo "failed"
 fi
 echo "installing node"
@@ -15,6 +17,13 @@ then
   echo  " sucess"
 else
   echo "failed"
+fi
+id roboshop &>>/tmp/cart.log
+if [$? -nq 0 ]; then
+  echo " user exists already"
+else
+  echo "addind user"
+  useradd roboshop &>>/tmp/cart.log
 fi
 echo "addind user"
 useradd roboshop &>>/tmp/cart.log
