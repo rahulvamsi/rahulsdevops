@@ -32,19 +32,5 @@ echo "changing direct"
 cd /home/roboshop &>>/tmp/${COMPONENT}.log
 rm -rf ${COMPONENT} &>>/tmp/${COMPONENT}.log
 StatusCheck
-echo "unzipping"
-unzip -o /tmp/${COMPONENT}.zip
-StatusCheck
-echo " moving and changing"
-mv ${COMPONENT}-main ${COMPONENT} &>>/tmp/${COMPONENT}.log && cd ${COMPONENT} &>>/tmp/${COMPONENT}.log
-StatusCheck
-echo "installing node "
-npm install &>>/tmp/${COMPONENT}.log
-StatusCheck
-echo "moving systemd to ${COMPONENT}"
-mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>>/tmp/${COMPONENT}.log
-StatusCheck
-echo " running systemctl commands"
-systemctl daemon-reload &>>/tmp/${COMPONENT}.log &&  systemctl start ${COMPONENT} &>>/tmp/${COMPONENT}.log  && systemctl enable ${COMPONENT} &>>/tmp/${COMPONENT}.log
-StatusCheck
+
 }
