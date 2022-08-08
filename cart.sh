@@ -19,10 +19,10 @@ else
   echo "failed"
 fi
 id roboshop &>>/tmp/cart.log
-if [$? -nq 0 ]; then
+if [$? -eq 0 ]; then
   echo " user exists already"
 else
-  echo "addind user"
+  echo "adding user"
   useradd roboshop &>>/tmp/cart.log
 fi
 if [ $? -eq 0 ];
