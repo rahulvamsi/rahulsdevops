@@ -1,13 +1,14 @@
-set -e
+#set -e
 
 echo "downloading repo"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/cart.log
 echo  $?
-if [$? -eq 0 ]
+if [ $? -eq 0 ];
 then
   echo  " sucess"
 else
   echo "failed"
+fi
 echo "installing node"
 yum install nodejs -y &>>/tmp/cart.log
 echo  $?
