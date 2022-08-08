@@ -10,7 +10,8 @@ unzip -o /tmp/catalogue.zip
 StatusCheck
 ls
 echo " moving and changing"
-mv catalogue-main catalogue  && cd catalogue
+mv catalogue-main  catalogue
+cd catalogue
 StatusCheck
 echo "installing node "
 npm install &>>/tmp/catalogue.log
