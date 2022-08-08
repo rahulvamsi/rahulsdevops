@@ -19,7 +19,7 @@ else
   echo "failed"
 fi
 id roboshop &>>/tmp/cart.log
-if [$? -eq 0 ]; then
+if [ $? -eq 0 ]; then
   echo " user exists already"
 else
   echo "adding user"
