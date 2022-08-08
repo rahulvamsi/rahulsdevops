@@ -96,9 +96,7 @@ else
   echo "failed"
 fi
 echo " running systemctl commands"
-systemctl daemon-reload &>>/tmp/cart.log
-systemctl start cart &>>/tmp/cart.log
-systemctl enable cart &>>/tmp/cart.log
+systemctl daemon-reload &>>/tmp/cart.log &&  systemctl start cart &>>/tmp/cart.log  && systemctl enable cart &>>/tmp/cart.log
 if [ $? -eq 0 ];
 then
   echo  " sucess"
