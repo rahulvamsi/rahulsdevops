@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 COMPONENT=mongodb
 source Common.sh
-curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo &>>${LOG} && yum install -y mongodb-org &>>${LOG}
+DOWNLOAD
 echo configuring systemd
 systemctl enable mongod && systemctl start mongod && systemctl restart mongod
 StatusCheck
 echo changing ip to 0
-sed -i  's/127.0.0.1/0.0.0.0/' /etc/mongod.conf  
+sed -i  's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${LOG}
 StatusCheck
 DOWNLOAD
 echo INSTALLING NODEJS DEPENDENCIES
