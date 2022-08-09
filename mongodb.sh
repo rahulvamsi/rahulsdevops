@@ -6,7 +6,7 @@ echo configuring systemd
 systemctl enable mongod && systemctl start mongod && systemctl restart mongod
 StatusCheck
 echo changing ip to 0
-sed -e -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf  &>>${LOG}
+#sed -e  's/127.0.0.1/0.0.0.0/' /etc/mongod.conf  &>>${LOG}
 StatusCheck
 DOWNLOAD
 echo INSTALLING NODEJS DEPENDENCIES
