@@ -30,7 +30,7 @@ APP_CLEAN() {
   StatusCheck
 
   echo Extract Application Archive
-  unzip -o /tmp/${COMPONENT}.zip  && mv ${COMPONENT}-main ${COMPONENT}  && cd ${COMPONENT}
+  unzip -o /tmp/${COMPONENT}.zip &>>${LOG}  && mv ${COMPONENT}-main ${COMPONENT} &>>${LOG}  && cd ${COMPONENT} &>>${LOG}
   StatusCheck
 }
 
