@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
-curl -L https://raw.githubusercontent.com/roboshop-devops-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo
-yum install redis-6.2.7 -y
-systemctl enable redis && systemctl start redis
+COMPONENT=redis
+source Common.sh
+DOWNLOAD
+
+echo INSTALLING REDIS DEPENDENCIES
+yum install redis-6.2.7 -y  &>>${LOG}
+StatusCheck
+
+echo CONFIGURING SYSTEMD
+systemctl enable redis && systemctl start redis &>>${LOG}
+StatusCheck
