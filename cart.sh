@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-COMPONENT = cart
+COMPONENT=cart
 source Common.sh
 
-NodeJS
+NodeJs
 
