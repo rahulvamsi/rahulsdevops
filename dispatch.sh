@@ -25,6 +25,7 @@ echo INSTALLING GOLANG
 yum install golang -y &>>${LOG}
 StatusCheck
 APP_USER_SETUP
+cd /home/roboshop
 rm -rf dispatch
 curl -L -s -o /tmp/dispatch.zip https://github.com/roboshop-devops-project/dispatch/archive/refs/heads/main.zip
 unzip -o /tmp/dispatch.zip
