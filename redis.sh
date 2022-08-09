@@ -4,7 +4,7 @@ source Common.sh
 DOWNLOAD
 
 echo INSTALLING REDIS DEPENDENCIES
-yum install redis -y
+yum install redis-6.2 -y &>>${LOG}
 StatusCheck
 
 echo CONFIGURING SYSTEMD
