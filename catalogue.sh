@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-COMPONENT = catalogue
+COMPONENT=catalogue
 source Common.sh
 
 
