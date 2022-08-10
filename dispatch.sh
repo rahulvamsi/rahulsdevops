@@ -12,7 +12,7 @@ cd /home/roboshop &>>${LOG} && rm -rf ${COMPONENT} &>>${LOG}
 StatusCheck
 
 echo Extract Application Archive
-unzip -o /tmp/dispatch.zip &>>${LOG}  && mv dispatch-main dispatch &>>${LOG}  && cd dispatch &>>${LOG}
+unzip -o /tmp/dispatch.zip  && mv dispatch-main dispatch   && cd dispatch
 StatusCheck
 echo RUNNING GO SERVICE
 go mod init dispatch &>>${LOG} && go get &>>${LOG} && go build &>>${LOG}
