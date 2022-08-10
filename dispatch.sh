@@ -1,20 +1,37 @@
+#
+#COMPONENT=dispatch
+#source Common.sh
+#
+#echo INSTALLING GOLANG
+#yum install golang -y &>>${LOG}
+#StatusCheck
+#APP_USER_SETUP
+#
+#echo Cleaning old application content
+#cd /home/roboshop &>>${LOG} && rm -rf ${COMPONENT} &>>${LOG}
+#StatusCheck
+#
+#echo Extract Application Archive
+#unzip -o /tmp/dispatch.zip  && mv dispatch-main dispatch   && cd dispatch
+#StatusCheck
+#echo RUNNING GO SERVICE
+#go mod init dispatch &>>${LOG} && go get &>>${LOG} && go build &>>${LOG}
+#StatusCheck
+#SYSTEMD
 
-COMPONENT=dispatch
-source Common.sh
+yum install golang -y
+useradd roboshop
 
-echo INSTALLING GOLANG
-yum install golang -y &>>${LOG}
-StatusCheck
-APP_USER_SETUP
+curl -L -s -o /tmp/dispatch.zip https://github.com/roboshop-devops-project/dispatch/archive/refs/heads/main.zip
+unzip /tmp/dispatch.zip
+mv dispatch-main dispatch
+cd dispatch
+go mod init dispatch
+go get
+go build
 
-echo Cleaning old application content
-cd /home/roboshop &>>${LOG} && rm -rf ${COMPONENT} &>>${LOG}
-StatusCheck
 
-echo Extract Application Archive
-unzip -o /tmp/dispatch.zip  && mv dispatch-main dispatch   && cd dispatch
-StatusCheck
-echo RUNNING GO SERVICE
-go mod init dispatch &>>${LOG} && go get &>>${LOG} && go build &>>${LOG}
-StatusCheck
-SYSTEMD
+mv /home/roboshop/dispatch/systemd.service /etc/systemd/system/dispatch.service
+systemctl daemon-reload
+systemctl enable dispatch
+systemctl start dispatch
