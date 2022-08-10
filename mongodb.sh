@@ -3,7 +3,7 @@ COMPONENT=mongodb
 source Common.sh
 DOWNLOAD
 echo INSTALLING MONGODB
-yum install mongodb -y &>>${LOG}
+yum install mongodb -y 
 StatusCheck
 
 echo configuring systemd
