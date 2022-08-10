@@ -4,7 +4,6 @@ source Common.sh
 DOWNLOAD
 echo INSTALLING MONGODB
 yum install mongodb -y 
-StatusCheck
 
 echo configuring systemd
 systemctl enable mongod && systemctl start mongod && systemctl restart mongod
