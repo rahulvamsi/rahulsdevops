@@ -5,8 +5,8 @@ source Common.sh
 echo Setup YUM repo
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo &>>${LOG}
 StatusCheck
-
-yum install -y mongodb-org
+echo INSTALL MONGODB
+yum install -y mongodb-org  &>>${LOG}
 
 echo configuring systemd
 systemctl enable mongod && systemctl start mongod && systemctl restart mongod
