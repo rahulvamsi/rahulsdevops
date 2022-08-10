@@ -3,7 +3,7 @@ COMPONENT=mongodb
 source Common.sh
 DOWNLOAD
 echo configuring systemd
-systemctl enable mongodb-org && systemctl start mongod && systemctl restart mongod
+systemctl enable mongod && systemctl start mongod && systemctl restart mongod
 StatusCheck
 echo changing ip to 0
 sed -i  's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${LOG}
