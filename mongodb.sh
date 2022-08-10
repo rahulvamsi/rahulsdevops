@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 COMPONENT=mongodb
 source Common.sh
-DOWNLOAD
-echo INSTALLING MONGODB
-yum install mongodb -y 
+
+echo Setup YUM repo
+curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo &>>${LOG}
+StatusCheck
 
 echo configuring systemd
 systemctl enable mongod && systemctl start mongod && systemctl restart mongod
