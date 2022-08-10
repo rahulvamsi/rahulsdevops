@@ -2,6 +2,10 @@
 COMPONENT=mongodb
 source Common.sh
 DOWNLOAD
+echo INSTALLING MONGODB
+yum install -y mongodb-org &>>${LOG}
+StatusCheck
+
 echo configuring systemd
 systemctl enable mongod && systemctl start mongod && systemctl restart mongod
 StatusCheck
