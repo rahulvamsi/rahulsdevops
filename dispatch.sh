@@ -10,11 +10,15 @@ APP_USER_SETUP
 #APP_CLEAN
 
 echo Cleaning old application content
-cd /home/roboshop  && rm -rf dispatch 
+cd /home/roboshop
+
+rm -rf dispatch
 StatusCheck
 
 echo Extract Application Archive
-unzip -o /tmp/dispatch.zip   && mv dispatch-main ${COMPONENT}   && cd dispatch
+unzip -o /tmp/dispatch.zip
+mv dispatch-main ${COMPONENT}
+cd dispatch
 StatusCheck
 
 echo RUNNING GO SERVICE
