@@ -17,6 +17,10 @@ StatusCheck
 echo moving files
 mv frontend-main/static/* . &>>${LOG} && mv frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf &>>${LOG}
 StatusCheck
+echo changing localhost to
+sed -i -e '14 s/localhost/catalogue_dev/' -e  '16 s/localhost/user_dev/' -e  '18 s/localhost/cart_dev/' -e  '20 s/localhost/shipping_dev/' -e  '22 s/localhost/payment_dev/' /etc/nginx/default.d/roboshop.conf
+StatusCheck
+
 echo restarting service nginx
 systemctl restart nginx
 StatusCheck
