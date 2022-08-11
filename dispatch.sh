@@ -10,7 +10,7 @@ APP_USER_SETUP
 #APP_CLEAN
 
 echo Cleaning old application content
-cd /home/roboshop &>>${LOG} && rm -rf dispatch &>>${LOG}
+cd /home/roboshop  && rm -rf dispatch 
 StatusCheck
 
 echo Extract Application Archive
