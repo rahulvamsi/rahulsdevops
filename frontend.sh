@@ -20,7 +20,7 @@ unzip -o /tmp/frontend.zip &>>${LOG} && mv frontend-main/static/* . &&  mv front
 StatusCheck
 
 echo Updating Nginx Configuration
-sed -i -e '/catalogue/ s/localhost/catalogue-dev.roboshop.internal/' -e '/cart/ s/localhost/cart-dev.roboshop.internal/' -e '/user/ s/localhost/user-dev.roboshop.internal/' -e '/shipping/ s/localhost/shipping-dev.roboshop.internal/' -e '/payment/ s/localhost/payment-dev.roboshop.internal/' /etc/nginx/default.d/roboshop.conf
+sed -i -e '/catalogue/ s/localhost/catalogue_dev.roboshop.internal/' -e '/cart/ s/localhost/cart_dev.roboshop.internal/' -e '/user/ s/localhost/user_dev.roboshop.internal/' -e '/shipping/ s/localhost/shipping_dev.roboshop.internal/' -e '/payment/ s/localhost/payment_dev.roboshop.internal/' /etc/nginx/default.d/roboshop.conf
 StatusCheck
 
 echo Start Nginx Service
