@@ -14,7 +14,8 @@ echo RUNNING GO SERVICE
 go mod init dispatch &>>${LOG} && go get &>>${LOG} && go build &>>${LOG}
 StatusCheck
 echo CHANGING RABBITMQ-IP
-sed -i 's/RABBITMQ-IP/rabbitmq_dev.roboshop.internal/' /etc/systemd/system/dispatch.service &>>${LOG} && systemctl daemon-reload &>>${LOG}
+sed -i 's/RABBITMQ-IP/rabbitmq_dev.roboshop.internal/' /etc/systemd/system//dispatch.service
+systemctl daemon-reload 
 StatusCheck
 
 echo Configuring ${COMPONENT} SystemD Service
