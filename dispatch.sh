@@ -13,5 +13,9 @@ APP_CLEAN
 echo RUNNING GO SERVICE
 go mod init dispatch &>>${LOG} && go get &>>${LOG} && go build &>>${LOG}
 StatusCheck
+echo CHANGING RABBITMQ-IP
+sed -i -e 's/RABBITMQ-IP/rabbitmq_dev.roboshop.internal/' /etc/systemd/system/dispatch.service
+StatusCheck
+
 SYSTEMD
 
